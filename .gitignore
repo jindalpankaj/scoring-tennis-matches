@@ -1,0 +1,9 @@
+# Ignoring virtual environments
+/venv*
+
+# Ignoring temporary dat file (huge sized) and unused data folder
+/templates/index*
+/templates/tech_*
+/*.dat
+
+/.idea

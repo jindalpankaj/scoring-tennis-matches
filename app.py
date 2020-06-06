@@ -34,4 +34,8 @@ def receive_data():
 #     return render_template("tech_detail.html", version_id=version_id)
 
 # running the server
-app.run(debug=False)
+# app.run(debug=False)
+
+# For heroku
+if __name__ == "__main__":
+    app.run(port=5000)

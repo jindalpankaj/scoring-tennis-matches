@@ -11,4 +11,4 @@ This app is deployed on Heroku and is available here: https://tennis-scoring.her
 
 Future work:
 1. Connect with a database and allow for user-logins and permanently saving match scores.
-2. Connect it with the point prediction project and allow for real-time prediction of individual points.
+2. Connect it with the point prediction project (https://github.com/jindalpankaj/points-prediction-tennis) and allow for real-time prediction of individual points.

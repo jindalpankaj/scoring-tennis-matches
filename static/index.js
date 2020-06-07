@@ -1,7 +1,9 @@
+const serve_indicator_color = "6px solid #4dff4d";
+const serve_indicator_loc = "border-left"
 $(document).ready(function() {
     p_serve = 1; // player who is serving, player 1 in the beginning by default
     tb_point = 0; // it increases after each tiebreak point, and becomes 0 after tb is over
-    $("#p1n_id").css('background', 'green');
+    $("#p1n_id").css(serve_indicator_loc, serve_indicator_color);
     a = parseInt($("#p1sets_id").html());
     b = parseInt($("#p2sets_id").html());
     tiebreak_points = parseInt($("#tb_pts").html());
@@ -18,17 +20,17 @@ $(document).ready(function() {
 
 function change_service(){
     p_serve_id = "#p" + p_serve + "n_id";
-    $(p_serve_id).css('background', 'transparent');
+    $(p_serve_id).css('border-left', 'transparent');
     p_serve = 3 - p_serve;
     p_serve_id = "#p" + p_serve + "n_id";
-    $(p_serve_id).css('background', 'green');
+    $(p_serve_id).css(serve_indicator_loc, serve_indicator_color);;
 }
 
 function set_serve(next_set_serve){
     p_serve = next_set_serve;
     p_serve_id = "#p" + p_serve + "n_id";
-    $(p_serve_id).css('background', 'green');
-    $("#p" + (3-p_serve) + "n_id").css('background', 'transparent'); // removing the returner background color
+    $(p_serve_id).css(serve_indicator_loc, serve_indicator_color);;
+    $("#p" + (3-p_serve) + "n_id").css('border-left', 'transparent'); // removing the returner serve color
 
 }
 
@@ -157,8 +159,14 @@ function update_set_score(winner, loser_tiebreak_score) {
             //console.log("MATCH IS OVER! STOP!");
             const msg_string = (a > b) ? "Player 1 won the match." : "Player 2 won the match.";
             alert("MATCH IS OVER! " + msg_string);
-            $("p1n_id").css('background', 'transparent');
-            $("p2n_id").css('background', 'transparent');
+            $("#p1n_id").css('border-left', 'transparent');
+            $("#p2n_id").css('border-left', 'transparent');
+            if (a > b) {
+                $("#p1_row_id").css('background', '#3385ff');
+            } else {
+                $("#p2_row_id").css('background', '#3385ff');
+            }
+
         } else {
             var s_id = "#s" + (num_columns-4) + "_id";
             num_columns = num_columns + 1;
